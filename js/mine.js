@@ -34,7 +34,6 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         console.log(user.toJSON());
     } else {
-        alert("user not signed in");
     }
 });
 
