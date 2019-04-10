@@ -48,29 +48,28 @@ function getImageForPath(p){
     var storageRef = firebase.storage().ref();
     var spaceRef = storageRef.child(p);
     storageRef.child(p).getDownloadURL().then(function(url) {
-        var fullurl = url;  
+        var fullurl = url;
         holder.src = fullurl;
     }).catch(function(error) {
     });
 }
+getImageForPath('images/1.jpg');
 
-if (fileButton) {
-    fileButton.addEventListener('change', function(e){
-        alert("Uploading file...");
-        var file = e.target.files[0];
-        var storageRef = firebase.storage().ref('images/'+file.name);
-        var task = storageRef.put(file);
-        task.on('state_changed',
-            function progress(snapshot) {
-                var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
-                uploader.value = percentage;
-            },
-            function error(err){
-                cosole.log(err);
-            },
-            function complete(){
-                alert("File succesfully uploaded");
-            }
-        );
-    });
-}
+fileButton.addEventListener('change', function(e){
+    alert("Uploading file...");
+    var file = e.target.files[0];
+    var storageRef = firebase.storage().ref('images/'+file.name);
+    var task = storageRef.put(file);
+    task.on('state_changed',
+        function progress(snapshot) {
+            var percentage = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
+            uploader.value = percentage;
+        },
+        function error(err){
+            cosole.log(err);
+        },
+        function complete(){
+            alert("File succesfully uploaded");
+        }
+    );
+});
