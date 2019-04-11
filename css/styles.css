@@ -696,3 +696,25 @@ hr {
     /*Without this, clicking will make it sticky*/
     pointer-events: none;
 }
+
+#donate h1 {
+  color: #413e66;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+#userReviews h1 {
+  color: #413e66;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+#contact h1 {
+  color: #413e66;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+#donate img {
+  padding: 0px 0px 2px 0px;
+}
